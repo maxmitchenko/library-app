@@ -22,14 +22,14 @@ export default class RegistrationForm extends React.Component {
         const user = {
           email: this.state.email,
           password: this.state.password          
-        };
-
-        handleRadio = (ev) => {
-          const val = this.input.value;
-          this.setState({selectedOption: {val}})
-        }
+        };        
         
   };
+
+  handleRadio = (ev) => {
+    const val = ev.target.value;
+    this.setState({selectedOption: {val}})
+  }
   render () {
         
         return (
