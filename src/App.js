@@ -9,6 +9,7 @@ import {
 import './App.css';
 import SignInForm from './components/SignInForm';
 import RegistrationForm from './components/RegistrationForm';
+import TestJsonDB from './components/testDb';
 
 
 export default class App extends Component {  
@@ -20,14 +21,16 @@ export default class App extends Component {
               <nav>
                 <ul>
                   <li><Link to='/'>Sign In</Link></li>
-                  <li><Link to='/registration'>Registrate</Link></li>                  
+                  <li><Link to='/registration'>Registrate</Link></li>
+                  <li><Link to='/testDbJson'>Test DB from JSON</Link></li>                  
                 </ul>
               </nav>
             </div>
             <div>
               <Switch>
                 <Route exact path='/' component={SignInForm}/>
-                <Route       path='/registration' component={RegistrationForm}/>      
+                <Route       path='/registration' component={RegistrationForm}/>
+                <Route       path='/testDbJson' component={TestJsonDB}/>      
               </Switch>
             </div>          
       </div>  
