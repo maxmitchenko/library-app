@@ -7,7 +7,7 @@ export default class RegistrationForm extends React.Component {
         this.state = {
           email: '',
           password: '',
-          selectedOption: 'chef'
+          selectedOption: ''
         }
       }
       handleUserInput = (e) => {
@@ -21,14 +21,20 @@ export default class RegistrationForm extends React.Component {
       
         const user = {
           email: this.state.email,
-          password: this.state.password          
-        };        
+          password: this.state.password,
+          option: this.state.selectedOption         
+        };
+        console.log(user);    
         
   };
 
-  handleRadio = (ev) => {
-    const val = ev.target.value;
-    this.setState({selectedOption: {val}})
+  // handleRadio = (ev) => {
+  //   const val = ev.target.value;
+  //   this.setState({selectedOption: {val}})
+  // }
+
+  handleChange(ev) {
+    this.setState({selectedOption: ev.target.value});
   }
   render () {
         
@@ -51,28 +57,35 @@ export default class RegistrationForm extends React.Component {
               value={this.state.password}
               onChange={this.handleUserInput} />
             </div>
-            <input type="radio" name="typeOfUser" value="chef" 
-            checked={this.handleRadio}/>
+            {/* <input type="radio" name="typeOfUser" value="chef" 
+            checked={this.handleRadio.bind(this)}/>
             <label className="p-1">Chef</label>
             <input type="radio" name="typeOfUser" value="manager" 
-            checked={this.handleRadio}/>
+            checked={this.handleRadio.bind(this)}/>
             <label className="p-1">Manager</label>
             <input type="radio" name="typeOfUser" value="librarian" 
-            checked={this.handleRadio}/>
+            checked={this.handleRadio.bind(this)}/>
             <label className="p-1">Librarian</label>
             <input type="radio" name="typeOfUser" value="student" 
-            checked={this.handleRadio}/>
+            checked={this.handleRadio.bind(this)}/>
             <label className="p-1">Student</label>
-              <p></p>           
+              <p></p>            */}
+              <p></p>
+              <label>
+          Choose your type of user:
+          <select value={this.state.selectedOption} onChange={this.handleChange.bind(this)}>
+            <option value="chef">Chef</option>
+            <option value="manager">Manager</option>
+            <option value="librarian">Librarian</option>
+            <option value="student">Student</option>
+          </select>
+        </label>
             <button type="submit" className="btn btn-primary mb-2">Confirm</button>
           </form>
           </div>
           <div className="col-md-3"></div>
           </div>
           </div>
-
-
-
             
         );
         };
