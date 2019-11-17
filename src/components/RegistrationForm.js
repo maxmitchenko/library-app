@@ -19,19 +19,22 @@ export default class RegistrationForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const user = {
+    const data = JSON.stringify(this.state);
+    
+    var user = {
       email: this.state.email,
       password: this.state.password,
       option: this.state.selectedOption
     };
+
+    fetch('http://localhost:8000/register', {
+      method: 'POST',
+      body: data,
+    });
     console.log(user);
+    console.log(data);
 
   };
-
-  // handleRadio = (ev) => {
-  //   const val = ev.target.value;
-  //   this.setState({selectedOption: {val}})
-  // }
 
   handleChange(ev) {
     this.setState({ selectedOption: ev.target.value });
@@ -44,7 +47,7 @@ export default class RegistrationForm extends React.Component {
           <div className="col-md-3"></div>
           <div className="col-md-6">
             <h3 className="mt-4 mb-3">Registration:</h3>
-            <form action="register" onSubmit={this.handleSubmit} method="get">
+            <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label htmlFor="registrateEmail"></label>
                 <input type="email" className="form-control" placeholder="Email" name="email"
