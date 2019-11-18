@@ -28,6 +28,10 @@ export default class RegistrationForm extends React.Component {
     };
 
     fetch('http://localhost:8000/register', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       method: 'POST',
       body: data,
     });
