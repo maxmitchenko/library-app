@@ -20,12 +20,6 @@ export default class RegistrationForm extends React.Component {
     event.preventDefault();
 
     const data = JSON.stringify(this.state);
-    
-    var user = {
-      email: this.state.email,
-      password: this.state.password,
-      option: this.state.selectedOption
-    };
 
     fetch('http://localhost:8000/register', {
       headers: {
@@ -63,7 +57,7 @@ export default class RegistrationForm extends React.Component {
                 <input type="password" className="form-control" placeholder="Password" name="password"
                   value={this.state.password}
                   onChange={this.handleUserInput} />
-              </div>              
+              </div>
               <p></p>
               <label>
                 Choose your type of user:
